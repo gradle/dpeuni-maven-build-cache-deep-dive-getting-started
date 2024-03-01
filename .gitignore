@@ -1,2 +1,4 @@
 target/
 .idea/
+.mvn/.develocity/
+build-cache

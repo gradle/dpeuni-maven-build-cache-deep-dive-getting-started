@@ -1,0 +1,19 @@
+<develocity xmlns="https://www.gradle.com/develocity-maven"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="https://www.gradle.com/develocity-maven https://www.gradle.com/schema/develocity-maven.xsd">
+  <server>
+    <url>https://dpeuniversity-develocity.gradle.com</url>
+  </server>
+  <buildCache>
+    <local>
+      <directory>build-cache</directory>
+      <cleanup>
+        <retention>P30D</retention>
+        <interval>P10D</interval>
+      </cleanup>
+    </local>
+    <remote>
+      <enabled>false</enabled>
+    </remote>
+  </buildCache>
+</develocity>
