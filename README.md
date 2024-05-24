@@ -23,8 +23,8 @@ Steps
 
    Run the command:
    ```shell
-   ./mvnw com.gradle:gradle-enterprise-maven-extension:1.20.1:init \
-     -Dgradle.enterprise.url=https://dpeuniversity-develocity.gradle.com
+   ./mvnw com.gradle:develocity-maven-extension:1.21.4:init \
+     -Ddevelocity.url=https://dpeuniversity-develocity.gradle.com
    ```
 > [!NOTE]
 > As part of taking this **free** course, you have access to a training instance of Develocity located at:
@@ -41,34 +41,34 @@ Steps
    
    Run the command:
    ```shell
-   ./mvnw com.gradle:gradle-enterprise-maven-extension:1.20.1:provision-access-key
+   ./mvnw com.gradle:develocity-maven-extension:1.21.4:provision-access-key
    ```
 
 > [!TIP]
 > For more ways to authenticate, see the [authentication guide](https://docs.gradle.com/enterprise/maven-extension/#authenticating_with_gradle_enterprise) to see how to provide credentials.
 
 3. Configure the project to **only** use the local build cache. **Disable** the remote build cache.
-   See how to set up `gradle-enterprise.xml` in the [getting started guide](https://docs.gradle.com/enterprise/maven-extension/#getting_set_up).
+   See how to set up `develocity.xml` in the [getting started guide](https://docs.gradle.com/enterprise/maven-extension/#getting_set_up).
    - See the [configuring the local cache](https://docs.gradle.com/enterprise/maven-extension/#configuring_the_local_cache) guide to configure local cache. (Enabled by default)
    - See the [disabling the remote cache](https://docs.gradle.com/enterprise/maven-extension/#disabling_the_remote_cache) guide to **disable** the remote cache.
 
-4. Ensure local cache doesn't exist. Best way to do this is to delete `~/.m2/.gradle-enterprise/build-cache`
+4. Ensure local cache doesn't exist. Best way to do this is to delete `~/.m2/.develocity/build-cache`
 
     ```shell
-    rm -rf ~/.m2/.gradle-enterprise/build-cache
+    rm -rf ~/.m2/.develocity/build-cache
     ```
 
 5. Build and run the application with local caching enabled. Enable debug logging for the build cache to see the details. The command is:
     
    ```shell
-    ./mvnw clean verify exec:java -Dorg.slf4j.simpleLogger.log.gradle.goal.cache=debug
+    ./mvnw clean verify exec:java -Dorg.slf4j.simpleLogger.log.develocity.goal.cache=debug
     ```
    
    On the first run, the build cache directory is created and populated with the outputs of the compilation operation. Identify the relevant log outputs.
 
 6. Run again without changes. The log output contains two messages that indicated that the outputs were pulled from the cache. What would happen if you ran the same command multiple times?
 
-7. What behavior would you expect if you deleted the directory `~/.m2/.gradle-enterprise/build-cache` and re-ran the same command.
+7. What behavior would you expect if you deleted the directory `~/.m2/.develocity/build-cache` and re-ran the same command.
  
 8. Configure the local cache to a non-standard directory and set the number of days that unused entries will be garbage collected to 30 days.
    - See the [local cache configuration](https://docs.gradle.com/enterprise/maven-extension/#changing_the_local_cache_directory) guide to set the directory. You can simply set it to `build-cache` which will create the cache directory in the current project.
